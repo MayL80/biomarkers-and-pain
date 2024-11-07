@@ -6,15 +6,15 @@ df<-df[order(df$"VAS.at.inclusion"),]
 install.packages("dplyr")
 library(dplyr)
 
-# create low VAS data frame and pull values of a biomarker corresponding to low VAS. Same process for high VAS data frame
+# create low VAS data frame and pull values of a biomarker at 0 weeks corresponding to low VAS at inclusion. Same process for high VAS data frame
 low_VAS_IL6<-df %>%
   filter(VAS.at.inclusion<=5.0) %>%
-  arrange(IL.6) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(IL.6)
 
 high_VAS_IL6<-df %>%
   filter(VAS.at.inclusion>5.0) %>%
-  arrange(IL.6) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(IL.6)
 
 # perform t test
@@ -31,12 +31,12 @@ if (result_IL6$p.value < alpha)
 # repeat for VEGF-A.low and high VAS data frames created, corresponding values pulled and t tests performed
 low_VAS_VEGFA<-df %>%
   filter(VAS.at.inclusion<=5.0) %>%
-  arrange(VEGF.A) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(VEGF.A)
 
 high_VAS_VEGFA<-df %>%
   filter(VAS.at.inclusion>5.0) %>%
-  arrange(VEGF.A) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(VEGF.A)
 
 result_VEGFA<- t.test(low_VAS_VEGFA,high_VAS_VEGFA)
@@ -51,12 +51,12 @@ if (result_VEGFA$p.value < alpha)
 # repeat for OPG
 low_VAS_OPG<-df %>%
   filter(VAS.at.inclusion<=5.0) %>%
-  arrange(OPG) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(OPG)
 
 high_VAS_OPG<-df %>%
   filter(VAS.at.inclusion>5.0) %>%
-  arrange(OPG) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(OPG)
 
 result_OPG<- t.test(low_VAS_OPG,high_VAS_OPG)
@@ -71,12 +71,12 @@ if (result_OPG$p.value < alpha)
 # repeat for TFG beta 1
 low_VAS_TGF<-df %>%
   filter(VAS.at.inclusion<=5.0) %>%
-  arrange(TGF.beta.1) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(TGF.beta.1)
 
 high_VAS_TGF<-df %>%
   filter(VAS.at.inclusion>5.0) %>%
-  arrange(TGF.beta.1) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(TGF.beta.1)
 
 result_TGF<- t.test(low_VAS_TGF,high_VAS_TGF)
@@ -91,12 +91,12 @@ if (result_TGF$p.value < alpha)
 # repeat for IL8
 low_VAS_IL8<-df %>%
   filter(VAS.at.inclusion<=5.0) %>%
-  arrange(IL.8) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(IL.8)
 
 high_VAS_IL8<-df %>%
   filter(VAS.at.inclusion>5.0) %>%
-  arrange(IL.8) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(IL.8)
 
 result_IL8<- t.test(low_VAS_IL8,high_VAS_IL8)
@@ -111,12 +111,12 @@ if (result_IL8$p.value < alpha)
 # repeat for CXCL9
 low_VAS_CXCL9<-df %>%
   filter(VAS.at.inclusion<=5.0) %>%
-  arrange(CXCL9) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(CXCL9)
 
 high_VAS_CXCL9<-df %>%
   filter(VAS.at.inclusion>5.0) %>%
-  arrange(CXCL9) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(CXCL9)
 
 result_CXCL9<- t.test(low_VAS_CXCL9,high_VAS_CXCL9)
@@ -131,12 +131,12 @@ if (result_CXCL9$p.value < alpha)
 # repeat for CXCL1
 low_VAS_CXCL1<-df %>%
   filter(VAS.at.inclusion<=5.0) %>%
-  arrange(CXCL1) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(CXCL1)
 
 high_VAS_CXCL1<-df %>%
   filter(VAS.at.inclusion>5.0) %>%
-  arrange(CXCL1) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(CXCL1)
 
 result_CXCL1<- t.test(low_VAS_CXCL1,high_VAS_CXCL1)
@@ -151,12 +151,12 @@ if (result_CXCL1$p.value < alpha)
 # repeat for IL18
 low_VAS_IL18<-df %>%
   filter(VAS.at.inclusion<=5.0) %>%
-  arrange(IL.18) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(IL.18)
 
 high_VAS_IL18<-df %>%
   filter(VAS.at.inclusion>5.0) %>%
-  arrange(IL.18) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(IL.18)
 
 result_IL18<- t.test(low_VAS_IL18,high_VAS_IL18)
@@ -171,12 +171,12 @@ if (result_IL18$p.value < alpha)
 # repeat for CSF1
 low_VAS_CSF1<-df %>%
   filter(VAS.at.inclusion<=5.0) %>%
-  arrange(CSF.1) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(CSF.1)
 
 high_VAS_CSF1<-df %>%
   filter(VAS.at.inclusion>5.0) %>%
-  arrange(CSF.1) %>%
+  filter(Biomarker.at.time.period=="0weeks") %>%
   pull(CSF.1)
 
 result_CSF1<- t.test(low_VAS_CSF1,high_VAS_CSF1)
